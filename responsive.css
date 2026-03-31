@@ -1,0 +1,84 @@
+/* ============================================
+   SOCIAL BOST – Responsive / Media Queries
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .platform-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .nav { display: none; }
+  .hamburger { display: block; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  /* Header */
+  .header-inner { padding: 10px 16px; }
+  .logo { font-size: 1.2rem; }
+  .tagline { font-size: 0.58rem; }
+  .hamburger { display: block; }
+  .nav { display: none; }
+
+  /* Hero */
+  .hero { padding: 28px 16px 48px; }
+  .hero-title { font-size: 1.15rem; margin-bottom: 24px; }
+
+  /* Platform Grid – 2 columns on mobile, matching reference screenshots */
+  .platform-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .platform-card {
+    padding: 22px 14px 16px;
+    gap: 7px;
+  }
+  .platform-card h3 { font-size: 0.95rem; }
+  .platform-card p  { font-size: 0.72rem; }
+  .btn-platform { padding: 8px 12px; font-size: 0.75rem; }
+  .platform-icon svg { width: 54px; height: 54px; }
+
+  /* Why Us */
+  .why-us { padding: 18px 20px; width: 100%; }
+  .why-grid { gap: 24px; }
+  .why-grid li { font-size: 0.78rem; }
+
+  /* Packages */
+  .packages-main { padding: 28px 16px 48px; }
+  .packages-title { font-size: 1.1rem; margin-bottom: 24px; }
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .pkg-card { padding: 22px 10px 16px; }
+  .pkg-number { font-size: 1.3rem; }
+  .pkg-price  { font-size: 1rem; }
+  .pkg-label  { font-size: 0.62rem; }
+  .best-badge { font-size: 0.62rem; padding: 3px 10px; top: -12px; }
+  .btn-back   { padding: 12px 24px; font-size: 0.82rem; }
+
+  /* Checkout */
+  .checkout-main { padding: 24px 14px 48px; }
+  .checkout-title { font-size: 1.1rem; }
+  .checkout-box { padding: 20px 16px; }
+  .order-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .order-total { font-size: 1.1rem; }
+  .progress-tracker { gap: 6px; }
+  .step { font-size: 0.72rem; }
+
+  /* Success */
+  .success-main { padding: 32px 16px 48px; }
+  .success-title { font-size: 1.5rem; }
+  .confirmation-box { padding: 20px 16px; }
+  .confirm-row { font-size: 0.82rem; }
+  .btn-dashboard { padding: 13px 28px; font-size: 0.9rem; }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .platform-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .packages-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}

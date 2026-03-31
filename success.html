@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOCIAL BOST – Purchase Successful!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+<body>
+
+<div class="hex-bg"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">SOCIAL <span>BOST</span></a>
+      <p class="tagline">Elevate Your Digital Presence. Select Your Platform</p>
+    </div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact Us</a>
+      <a href="packages.html" class="btn-get-started">Get Started</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Pricing</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact Us</a>
+    <a href="packages.html" class="btn-get-started">Get Started</a>
+  </div>
+</header>
+
+<main class="success-main">
+
+  <!-- GOLD CHECKMARK -->
+  <div class="success-check">
+    <div class="check-glow"></div>
+    <div class="check-circle">
+      <i class="fa fa-check"></i>
+    </div>
+  </div>
+
+  <h1 class="success-title">Purchase Successful!</h1>
+  <p class="success-sub">Thank You for choosing SOCIAL BOST. Your order is now being processed.</p>
+
+  <div class="confirmation-box">
+    <h3>Confirmation Summary</h3>
+    <hr/>
+    <div class="confirm-row"><span>Order ID:</span> <strong id="confOrderId">SBST-12345</strong></div>
+    <div class="confirm-row"><span>Date:</span> <strong id="confDate">2024-05-15</strong></div>
+    <div class="confirm-row"><span>Package:</span> <strong id="confPkg">1,000 Instagram Followers</strong></div>
+    <div class="confirm-row"><span>Username:</span> <strong id="confUser">@your_username</strong></div>
+    <div class="confirm-row"><span>Paid via PayHero:</span> <strong id="confAmt">$1.99</strong></div>
+  </div>
+
+  <p class="success-note">A detailed receipt and processing updates have been sent to your email.<br/>You can view your current account status in your dashboard.</p>
+
+  <a href="#" class="btn-dashboard">Go to My Dashboard</a>
+
+</main>
+
+<script src="js/main.js"></script>
+<script>
+  // Populate from localStorage
+  const orderId   = localStorage.getItem('sb_order_id') || 'SBST-00000';
+  const date      = localStorage.getItem('sb_date')     || new Date().toISOString().split('T')[0];
+  const platform  = localStorage.getItem('sb_platform') || 'instagram';
+  const followers = localStorage.getItem('sb_followers') || '1000';
+  const price     = localStorage.getItem('sb_price')    || '1.99';
+  const username  = localStorage.getItem('sb_username') || '@your_username';
+
+  const platformNames = { instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube', facebook: 'Facebook' };
+  const pName = platformNames[platform] || 'Instagram';
+  const followersFormatted = parseInt(followers).toLocaleString();
+
+  document.getElementById('confOrderId').textContent = orderId;
+  document.getElementById('confDate').textContent    = date;
+  document.getElementById('confPkg').textContent     = followersFormatted + ' ' + pName + ' Followers';
+  document.getElementById('confUser').textContent    = username.startsWith('@') ? username : '@' + username;
+  document.getElementById('confAmt').textContent     = '$' + parseFloat(price).toFixed(2);
+
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

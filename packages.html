@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOCIAL BOST – Choose Your Package</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+<body>
+
+<div class="hex-bg"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">SOCIAL <span>BOST</span></a>
+      <p class="tagline">Elevate Your Digital Presence. Select Your Platform</p>
+    </div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Pricing</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact Us</a>
+      <a href="packages.html" class="btn-get-started">Get Started</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Pricing</a>
+    <a href="#">Blog</a>
+    <a href="#">Contact Us</a>
+    <a href="packages.html" class="btn-get-started">Get Started</a>
+  </div>
+</header>
+
+<main class="packages-main">
+  <h1 class="packages-title" id="packagesTitle">Instagram Followers – Choose Your Package</h1>
+
+  <div class="packages-grid">
+
+    <div class="pkg-card best-value" data-followers="1000" data-price="1.99">
+      <div class="best-badge"><i class="fa fa-star"></i> Best Value</div>
+      <div class="pkg-number">1,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$1.99</div>
+    </div>
+
+    <div class="pkg-card" data-followers="2000" data-price="3.99">
+      <div class="pkg-number">2,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$3.99</div>
+    </div>
+
+    <div class="pkg-card" data-followers="3000" data-price="5.49">
+      <div class="pkg-number">3,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$5.49</div>
+    </div>
+
+    <div class="pkg-card" data-followers="4000" data-price="7.25">
+      <div class="pkg-number">4,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$7.25</div>
+    </div>
+
+    <div class="pkg-card" data-followers="5000" data-price="8.99">
+      <div class="pkg-number">5,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$8.99</div>
+    </div>
+
+    <div class="pkg-card" data-followers="6000" data-price="10.75">
+      <div class="pkg-number">6,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$10.75</div>
+    </div>
+
+    <div class="pkg-card" data-followers="7000" data-price="12.49">
+      <div class="pkg-number">7,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$12.49</div>
+    </div>
+
+    <div class="pkg-card" data-followers="8000" data-price="14.15">
+      <div class="pkg-number">8,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$14.15</div>
+    </div>
+
+    <div class="pkg-card" data-followers="9000" data-price="15.99">
+      <div class="pkg-number">9,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$15.99</div>
+    </div>
+
+    <div class="pkg-card" data-followers="10000" data-price="17.50">
+      <div class="pkg-number">10,000</div>
+      <div class="pkg-label">FOLLOWERS</div>
+      <div class="pkg-price">$17.50</div>
+    </div>
+
+  </div>
+
+  <div class="back-btn-wrap">
+    <a href="index.html" class="btn-back"><i class="fa fa-chevron-left"></i> Back to Platform Selection</a>
+  </div>
+</main>
+
+<script src="main.js"></script>
+<script>
+  // Set page title based on platform
+  const platform = localStorage.getItem('sb_platform') || 'instagram';
+  const platformNames = { instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube', facebook: 'Facebook' };
+  document.getElementById('packagesTitle').textContent = (platformNames[platform] || 'Instagram') + ' Followers – Choose Your Package';
+
+  // Handle package selection
+  document.querySelectorAll('.pkg-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const followers = card.dataset.followers;
+      const price = card.dataset.price;
+      localStorage.setItem('sb_followers', followers);
+      localStorage.setItem('sb_price', price);
+      localStorage.setItem('sb_platform', platform);
+      window.location.href = 'checkout.html';
+    });
+  });
+
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
